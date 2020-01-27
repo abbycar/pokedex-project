@@ -1,0 +1,54 @@
+{# Copyright 2020 Google Inc.	
+#	
+# Licensed under the Apache License, Version 2.0 (the "License");	
+# you may not use this file except in compliance with the License.	
+# You may obtain a copy of the License at	
+#	
+#     http://www.apache.org/licenses/LICENSE-2.0	
+#	
+# Unless required by applicable law or agreed to in writing, software	
+# distributed under the License is distributed on an "AS IS" BASIS,	
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.	
+# See the License for the specific language governing permissions and	
+# limitations under the License.
+#}
+
+{% extends "bootstrap/base.html" %}
+
+{% block head %}
+    {{ super() }}
+    <title>{% block title %}Poke View{% endblock %}</title>
+{% endblock %}
+
+{% block navbar %}
+    <div class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <div class="navbar-brand"><a href="/">Poke View</a></div>
+        </div>
+        {% if current_user.is_authenticated %}
+        <ul class="nav navbar-nav">
+            <li><a href="/pokedex">Pokedex</a></li>
+            <li><a href="{{url_for('account.signout')}}">Sign out</a></li>
+        </ul>
+        {% endif %}
+      </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-warning alert-dismissible">
+      <button type="button" class="close" data-dismiss="alert">
+        &times;
+      </button>
+      {{message}}
+    </div>
+    {% endfor %}
+    {% block app_content %}{% endblock %}
+</div>
+
+{% endblock %}
+
+
