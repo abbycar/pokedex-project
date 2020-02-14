@@ -1,6 +1,6 @@
 # Pokeview - A cloud-based Pokedex built with Flask
 
-This is a somewhat complex Flask app created for the [Creating a cloud-based Pokedex series](). This is not an official Google product.
+This is a somewhat complex Flask app created for the [Creating a cloud-based Pokedex series](https://dev.to/googlecloud/creating-a-cloud-based-pokedex-overview-o8j). This is not an official Google product.
 
 It includes the following features:
 
